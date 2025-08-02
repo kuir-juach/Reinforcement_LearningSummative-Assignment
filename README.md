@@ -1,7 +1,7 @@
 # NLP Exam Grading RL Environment - South Sudan Education System
 
 ## Overview
-This project implements a reinforcement learning environment for automating examination grading in South Sudan's education system. The environment simulates an AI agent learning to efficiently and accurately grade student responses in subjects like English, Social Studies, and Religious Education.
+This project implements a Natural Language Processing (NLP) system to improve examination marking efficiency in South Sudan’s primary education system, targeting one of the most persistent administrative challenges in the country’s education sector. The system simulates an intelligent grading model that automatically evaluates short-answer student responses, aiming to reduce result processing delays, enhance transparency, and ensure fairness in the assessment process. Rooted in the country’s urgent need for educational reform, the project addresses issues such as manual marking bottlenecks, a shortage of trained examiners, and limited operational capacity within the Ministry of General Education and Instruction. The approach involves designing a prototype NLP model capable of understanding and scoring subjective student responses in subjects like English, Social Studies, and Religious Education. Through the evaluation of the model’s performance against human grading benchmarks, the project explores the practical and ethical considerations of automating national assessments in a fragile, post-conflict setting. Ultimately, the research contributes to advancing South Sudan’s digital education agenda and aligns with Sustainable Development Goal 4 by proposing scalable, AI-driven solutions to promote inclusive and quality education.
 
 ## Project Structure
 ```
