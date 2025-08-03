@@ -102,6 +102,8 @@ project_root/
 ---
 
 
+<img width="1238" height="886" alt="Screenshot 2025-08-03 081452" src="https://github.com/user-attachments/assets/7ea771b3-eb72-4134-8246-2d0bd5d7b0a2" />
+
 
 ## Algorithms Implemented
 
