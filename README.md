@@ -48,6 +48,61 @@ project_root/
 - **Final accuracy bonus**: +10-20 points
 - **Time penalty**: -20 points
 
+
+## Hyperparameter Optimization Summary
+
+### DQN (Deep Q-Network)
+
+| **Hyperparameter**          | **Optimal Value**                      | **Summary** |
+|----------------------------|----------------------------------------|-------------|
+| `Learning Rate`            | `0.0003`                               | Balanced speed and stability. Higher rates (0.001) caused Q-value instability; lower (0.0001) slowed training. |
+| `Gamma (Discount Factor)`  | `0.98`                                 | Focused on both short and long-term rewards. 0.99 was too future-focused; 0.95 ignored long-term benefits. |
+| `Replay Buffer Size`       | `30,000`                               | Ensured experience diversity without memory overload. Larger buffers gave minimal improvement. |
+| `Batch Size`               | `64`                                   | Stable gradient estimates and consistent learning. Smaller batches caused noisy updates. |
+| `Exploration Strategy`     | `ε-greedy (1.0 → 0.1 over 20k steps)`  | Balanced exploration vs. exploitation. Faster decay led to premature convergence; slower hindered learning. |
+| `Target Update Frequency`  | `2,000 steps`                          | Optimal stability. Frequent updates (500) caused instability; infrequent updates delayed convergence. |
+
+---
+
+### PPO (Proximal Policy Optimization)
+
+| **Hyperparameter**         | **Optimal Value**      | **Summary** |
+|---------------------------|------------------------|-------------|
+| `Learning Rate`           | `0.00025`              | Enabled steady policy improvement. Higher values led to policy collapse; lower slowed training. |
+| `Clip Range`              | `0.2`                  | Maintained policy stability. Lower values constrained learning; higher values caused divergence. |
+| `Epochs per Update`       | `10`                   | Gave enough opportunity for advantage estimation without overfitting. |
+| `Batch Size`              | `64`                   | Balanced learning noise and update stability. |
+| `GAE Lambda`              | `0.95`                 | Balanced bias and variance for advantage estimation. |
+| `Entropy Coefficient`     | `0.01`                 | Encouraged sufficient exploration without destabilizing the policy. |
+
+---
+
+### A2C (Advantage Actor-Critic)
+
+| **Hyperparameter**         | **Optimal Value** | **Summary** |
+|---------------------------|-------------------|-------------|
+| `Learning Rate`           | `0.0007`           | Fast convergence without policy divergence. Higher rates led to unstable performance. |
+| `Gamma (Discount Factor)` | `0.99`             | Promoted long-term reward maximization. |
+| `Value Loss Coeff.`       | `0.5`              | Balanced actor-critic updates. Too high gave weak policy updates. |
+| `Entropy Coefficient`     | `0.01`             | Maintained useful exploration. Higher values led to randomness. |
+| `n-step Returns`          | `5`                | Provided stable and informative updates for credit assignment. |
+
+---
+
+### REINFORCE (Monte Carlo Policy Gradient)
+
+| **Hyperparameter**         | **Optimal Value** | **Summary** |
+|---------------------------|-------------------|-------------|
+| `Learning Rate`           | `0.001`           | Supported faster convergence in a high-variance setting. Too low slowed progress. |
+| `Gamma (Discount Factor)` | `0.99`            | Allowed consideration of long-term rewards. |
+| `Baseline`                | `Yes (Value Function)` | Helped reduce gradient variance, improving stability and learning speed. |
+| `Batch Size`              | `32`              | Enabled stable gradient estimates while keeping sufficient variance. |
+| `Episode Count`           | `10,000+`         | Required many episodes due to the high variance nature of Monte Carlo returns. |
+
+---
+
+
+
 ## Algorithms Implemented
 
 ### 1. Deep Q-Network (DQN) - Value-Based
